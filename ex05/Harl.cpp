@@ -33,5 +33,5 @@ void Harl::warning() {
 }
 
 void Harl::complain(std::string level) {
-
+	
 }
