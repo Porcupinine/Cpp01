@@ -19,24 +19,19 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include<bits/stdc++.h>
 
-void copy_file(const std::string& fileName, const std::string& replaceName) {
-	std::string line;
-	std::ifstream infile(fileName);
-	std::ofstream outfile(replaceName);
-	if(!infile.is_open())
-		std::cout<<"can't open infile\n";
-	if(!outfile.is_open())
-		std::cout<<"can't open outfile\n";
-	if (infile && outfile) {
-		while (std::getline(infile, line)) {
-			outfile << line << "\n";
-		}
+int replace(const std::string& fileName, const std::string& toFind, const std::string& toReplace) {
+	std::fstream file(fileName);
+	if (!file.is_open()) {
+		std::cout<<"Can't open\n";
+		return 1;
 	}
-	else
-		std::cout<<"Can't read\n";
-	infile.close();
-	outfile.close();
+	return 0;
+}
+
+int sone_new_lines(std::string str) {
+	return (std::count(str.begin(), str.end(), '\n'));
 }
 
 int main (int argc, char **argv) {
@@ -48,6 +43,47 @@ int main (int argc, char **argv) {
 	std::string fileName = argv[1];
 	std::string replaceName = argv[1];
 	replaceName.append(".replace");
-	copy_file(fileName, replaceName);
+	size_t s1_new_lines = sone_new_lines(argv[2]);
+	std::string line;
+	std::ifstream infile(fileName);
+	std::ofstream outfile(replaceName);
+	std::string tem_string;
+	std::string to_find = argv[2];
+	std::string to_replace = argv[3];
+	std::string temp2;
+	size_t start;
+	if(!infile.is_open()) {
+		std::cout<<"can't open infile\n";
+		return 1;
+	}
+	if(!outfile.is_open()) {
+		std::cout<<"can't open outfile\n";
+		return 2;
+	}
+	if (infile && outfile) {
+		while (std::getline(infile, line)) {
+			tem_string.append(line);
+			if (std::count(tem_string.begin(), tem_string.end(), '\n') != s1_new_lines) {
+				start = tem_string.find(to_find);
+				if (start != std::string::npos) {
+					tem_string.erase(start, to_find.length());
+					tem_string.insert(start, to_replace);
+					outfile << line << "\n";
+				}
+				else{
+					start = tem_string.find('\n');
+					if (start != std::string::npos) {
+						temp2 = tem_string.substr(0,start);
+						tem_string.erase(0, start);
+						outfile << temp2;
+					}
+					else
+						outfile << line << "\n";
+				}
+			}
+		}
+	}
+	infile.close();
+	outfile.close();
 	return 0;
 }

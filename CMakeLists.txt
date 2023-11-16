@@ -2,6 +2,9 @@ cmake_minimum_required(VERSION 3.26)
 project(Cpp01)
 
 set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -D_GLIBCXX_DEBUG")
+
+
 
 add_executable(Brainz ex00/main.cpp
 		ex00/Zombie.cpp
