@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.26)
 project(Cpp01)
 
 set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -D_GLIBCXX_DEBUG")
+#set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -D_GLIBCXX_DEBUG")
 
 
 
@@ -32,7 +32,10 @@ add_executable(Violence ex03/main.cpp
 
 add_executable(Sed ex04/main.cpp)
 
-add_executable(Harl
-		ex05/main.cpp
+add_executable(Harl ex05/main.cpp
 		ex05/Harl.cpp
 		ex05/Harl.h)
+
+add_executable(Harl_felter ex06/main.cpp
+		ex06/Harl.cpp
+		ex06/main.cpp)

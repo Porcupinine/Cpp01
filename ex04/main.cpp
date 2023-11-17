@@ -21,17 +21,9 @@
 #include <fstream>
 #include<bits/stdc++.h>
 
-int replace(const std::string& fileName, const std::string& toFind, const std::string& toReplace) {
-	std::fstream file(fileName);
-	if (!file.is_open()) {
-		std::cout<<"Can't open\n";
-		return 1;
-	}
-	return 0;
-}
-
-int sone_new_lines(std::string str) {
-	return (std::count(str.begin(), str.end(), '\n'));
+size_t count_new_lines(std::string str) {
+	size_t new_lines = std::count(str.begin(), str.end(), '\n');
+	return (new_lines);
 }
 
 int main (int argc, char **argv) {
@@ -43,7 +35,7 @@ int main (int argc, char **argv) {
 	std::string fileName = argv[1];
 	std::string replaceName = argv[1];
 	replaceName.append(".replace");
-	size_t s1_new_lines = sone_new_lines(argv[2]);
+	size_t s1_new_lines = count_new_lines(argv[2]);
 	std::string line;
 	std::ifstream infile(fileName);
 	std::ofstream outfile(replaceName);
@@ -63,12 +55,14 @@ int main (int argc, char **argv) {
 	if (infile && outfile) {
 		while (std::getline(infile, line)) {
 			tem_string.append(line);
-			if (std::count(tem_string.begin(), tem_string.end(), '\n') != s1_new_lines) {
+			tem_string.append("\n");
+			if (count_new_lines(tem_string) == s1_new_lines + 1) {
 				start = tem_string.find(to_find);
 				if (start != std::string::npos) {
 					tem_string.erase(start, to_find.length());
 					tem_string.insert(start, to_replace);
-					outfile << line << "\n";
+					outfile << tem_string;
+					tem_string.erase(0, start + to_replace.length()+1);
 				}
 				else{
 					start = tem_string.find('\n');
@@ -76,9 +70,13 @@ int main (int argc, char **argv) {
 						temp2 = tem_string.substr(0,start);
 						tem_string.erase(0, start);
 						outfile << temp2;
+						tem_string = "";
 					}
 					else
-						outfile << line << "\n";
+					{
+						outfile << tem_string;
+						tem_string = "";
+					}
 				}
 			}
 		}

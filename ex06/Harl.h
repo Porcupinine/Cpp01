@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.cpp                                           :+:    :+:            */
+/*   Harl.h                                             :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: laura <laura@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/11/11 19:31:59 by laura         #+#    #+#                 */
-/*   Updated: 2023/11/11 19:31:59 by laura         ########   odam.nl         */
+/*   Created: 2023/11/12 21:32:47 by laura         #+#    #+#                 */
+/*   Updated: 2023/11/12 21:32:47 by laura         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Harl.h"
+#ifndef CPP01_HARL_H
+#define CPP01_HARL_H
 
-int main () {
-	Harl harl;
-	harl.complain("ERROR");
-	harl.complain("error");
-	harl.complain("WARNING");
-	harl.complain("warning");
-	harl.complain("DEBUG");
-	harl.complain("debug");
-	harl.complain("INFO");
-	harl.complain("info");
-	return 0;
-}
+
+#include <string>
+
+class Harl {
+	private:
+		void debug();
+		void info();
+		void warning();
+		void error();
+	public:
+		Harl() = default;
+		~Harl() = default;
+		void complain(const std::string& level);
+};
+
+
+#endif //CPP01_HARL_H

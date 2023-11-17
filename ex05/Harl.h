@@ -16,13 +16,6 @@
 
 #include <string>
 
-typedef enum t_leve{
-	DEBUG,
-	INFO,
-	WARNING,
-	ERROR
-}e_level;
-
 class Harl {
 	private:
 		void debug();
@@ -30,8 +23,9 @@ class Harl {
 		void warning();
 		void error();
 	public:
-		void complain(std::string level);
+		Harl() = default;
+		~Harl() = default;
+		void complain(const std::string& level);
 };
-
 
 #endif //CPP01_HARL_H

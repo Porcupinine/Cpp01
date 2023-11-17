@@ -14,13 +14,13 @@
 
 int main () {
 	Harl harl;
-	harl.complain("ERROR");
-	harl.complain("error");
-	harl.complain("WARNING");
-	harl.complain("warning");
-	harl.complain("DEBUG");
-	harl.complain("debug");
-	harl.complain("INFO");
-	harl.complain("info");
+//	harl.complain("ERROR");
+//	harl.complain("error");
+//	harl.complain("WARNING");
+//	harl.complain("warning");
+//	harl.complain("DEBUG");
+//	harl.complain("debug");
+//	harl.complain("INFO");
+//	harl.complain("info");
 	return 0;
 }
