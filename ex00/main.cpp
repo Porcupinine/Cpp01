@@ -16,4 +16,7 @@
 int main() {
 	randomChump("Zumbi dos palmares");
 	randomChump("Alice");
+	Zombie *x = newZombie("Brainy");
+	x->anounce();
+	delete x;
 }

@@ -41,18 +41,29 @@ void Harl::complain(const std::string& level) {
 	complains[2] = std::make_pair("WARNING", &Harl::warning);
 	complains[3] = std::make_pair("ERROR", &Harl::error);
 	Harl harl;
-	for(int x = 0; x < 4; x++) {
+	for(int x = 0; x <= 4; x++) {
+		if (x ==4){
+			msg_lvl = x;
+			break;
+		}
 		if(complains[x].first == level) {
 			complained = true;
 			msg_lvl = x;
 			break;
 		}
 	}
-	while (complained && msg_lvl < 4){
-		(harl.*(complains[msg_lvl].second))();
-		msg_lvl++;
-	}
-	if (!complained) {
-		std::cout<<"Harl is complaining in silence\n";
+	switch (msg_lvl) {
+		case 0:
+			harl.debug();
+		case 1:
+			harl.info();
+		case 2:
+			harl.warning();
+		case 3:
+			harl.error();
+			break;
+		default:
+			std::cout<<"Harl is complaining in silence\n";
+			break;
 	}
 }

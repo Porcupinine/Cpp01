@@ -15,7 +15,7 @@
 #include <utility>
 
 Zombie* newZombie( std::string name)  {
-	auto *new_zombie = new(Zombie);
+	auto *new_zombie = new Zombie();
 	new_zombie->get_name(std::move(name));
 	return new_zombie;
 }

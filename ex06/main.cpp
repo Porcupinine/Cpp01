@@ -10,17 +10,26 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <iostream>
 #include "Harl.h"
 
 int main () {
 	Harl harl;
-//	harl.complain("ERROR");
-//	harl.complain("error");
-//	harl.complain("WARNING");
-//	harl.complain("warning");
-//	harl.complain("DEBUG");
+	std::cout<<"---DEBUG---\n";
+	harl.complain("DEBUG");
 //	harl.complain("debug");
-//	harl.complain("INFO");
+	std::cout<<"\n---DEBUG + INFO---\n";
+	harl.complain("INFO");
 //	harl.complain("info");
+	std::cout<<"\n---DEBUG + INFO + WARNING---\n";
+	harl.complain("WARNING");
+//	harl.complain("error");
+	std::cout<<"\n---DEBUG + INFO + WARNING + ERROR---\n";
+	harl.complain("ERROR");
+//	harl.complain("warning");
+	std::cout<<"\n--SILENCE--\n";
+	harl.complain("silence");
+
+
 	return 0;
 }
