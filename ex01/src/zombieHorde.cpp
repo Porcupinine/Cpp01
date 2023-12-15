@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.h"
+#include "../includes/Zombie.h"
 
 Zombie* zombieHorde(int N, const std::string& name) {
 	auto *horde = new Zombie[N];

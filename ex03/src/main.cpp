@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HumanA.h"
-#include "HumanB.h"
-#include "Weapon.h"
+#include "../includes/HumanA.h"
+#include "../includes/HumanB.h"
+#include "../includes/Weapon.h"
 
 
 int main() {

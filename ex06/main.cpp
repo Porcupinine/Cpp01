@@ -15,16 +15,16 @@
 
 int main () {
 	Harl harl;
-	std::cout<<"---DEBUG---\n";
+	std::cout<<"\n---DEBUG + INFO + WARNING + ERROR---\n";
 	harl.complain("DEBUG");
 //	harl.complain("debug");
-	std::cout<<"\n---DEBUG + INFO---\n";
+	std::cout<<"\n---INFO + WARNING + ERROR---\n";
 	harl.complain("INFO");
 //	harl.complain("info");
-	std::cout<<"\n---DEBUG + INFO + WARNING---\n";
+	std::cout<<"\n---WARNING + ERROR---\n";
 	harl.complain("WARNING");
 //	harl.complain("error");
-	std::cout<<"\n---DEBUG + INFO + WARNING + ERROR---\n";
+	std::cout<<"\n---ERROR---\n";
 	harl.complain("ERROR");
 //	harl.complain("warning");
 	std::cout<<"\n--SILENCE--\n";

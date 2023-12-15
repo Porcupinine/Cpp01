@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include <iostream>
-#include "Zombie.h"
+#include "../includes/Zombie.h"
 
 int main() {
 	randomChump("Zumbi dos palmares");

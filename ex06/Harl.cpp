@@ -34,7 +34,7 @@ void Harl::warning() {
 
 void Harl::complain(const std::string& level) {
 	bool complained = false;
-	size_t msg_lvl;
+	size_t msg_lvl = 0;
 	std::pair<std::string, void (Harl::*)()> complains[4];
 	complains[0] = std::make_pair("DEBUG", &Harl::debug);
 	complains[1] = std::make_pair("INFO", &Harl::info);

@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Zombie.cpp                                         :+:    :+:            */
+/*   HumanB.cpp                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: laura <laura@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/11/09 10:53:30 by laura         #+#    #+#                 */
-/*   Updated: 2023/11/09 10:53:30 by laura         ########   odam.nl         */
+/*   Created: 2023/11/10 13:13:08 by laura         #+#    #+#                 */
+/*   Updated: 2023/11/10 13:13:08 by laura         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../includes/HumanB.h"
 #include <iostream>
 #include <utility>
-#include "Zombie.h"
 
-void	Zombie::anounce() {
-	std::cout<<name<<": BraiiiiiiinnnzzzZ...\n";
+HumanB::HumanB(std::string b_name) : m_name(std::move(b_name)), m_weapon(nullptr) {
 }
 
-void	Zombie::get_name(std::string new_name) {
-	name = std::move(new_name);
+void HumanB::attack() {
+	if (m_weapon == nullptr)
+		std::cout<< m_name << "attacks with their barehands\n";
+	else
+		std::cout << m_name << "attacks with their " << m_weapon->getType() << "\n";
 }
 
-Zombie::Zombie() {
-//	std::cout<<"Zombie risen\n";
+void HumanB::setWeapon(Weapon& new_weapon) {
+	m_weapon = &new_weapon;
 }
-
-Zombie::~Zombie() {
-	std::cout<<name<<" was head shot\n";
-}
-
-
-
-

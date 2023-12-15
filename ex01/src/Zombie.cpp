@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Weapon.cpp                                         :+:    :+:            */
+/*   Zombie.cpp                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: laura <laura@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/11/10 13:20:57 by laura         #+#    #+#                 */
-/*   Updated: 2023/11/10 13:20:57 by laura         ########   odam.nl         */
+/*   Created: 2023/11/09 10:53:30 by laura         #+#    #+#                 */
+/*   Updated: 2023/11/09 10:53:30 by laura         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.h"
-
+#include <iostream>
 #include <utility>
+#include "../includes/Zombie.h"
 
-Weapon::Weapon(std::string type) : m_type(std::move(type)) {
+void	Zombie::anounce() {
+	std::cout<<name<<": BraiiiiiiinnnzzzZ...\n";
+}
+void	Zombie::get_name(std::string new_name) {
+	name = std::move(new_name);
 }
 
-std::string Weapon::getType() {
-	return m_type;
+Zombie::Zombie() {
+	std::cout<<"Zombie risen\n";
 }
 
-void Weapon::setType(std::string weapon_type) {
-	m_type = std::move(weapon_type);
+Zombie::~Zombie() {
+	std::cout<<name<<" was head shot\n";
 }
+
+
