@@ -3,8 +3,8 @@ project(Cpp01)
 
 set(CMAKE_CXX_STANDARD 11)
 #set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -D_GLIBCXX_DEBUG")
-add_compile_options(-fsanitize=address -fsanitize=leak -g3)
-add_link_options(-fsanitize=address -fsanitize=leak)
+#add_compile_options(-fsanitize=address -fsanitize=leak -g3)
+#add_link_options(-fsanitize=address -fsanitize=leak)
 
 
 add_executable(Brainz ex00/main.cpp

@@ -37,18 +37,15 @@ void write_new_file(const std::string &to_find, const std::string &to_replace,
 		tem_string.append(line + '\n');
 		if (count_new_lines(tem_string) == s1_new_lines + 1) {
 			start = tem_string.find(to_find);
-			if (start != std::string::npos) {
+			while (start != std::string::npos) {
 				tem_string.erase(start, to_find.length());
 				tem_string.insert(start, to_replace);
-				outfile << tem_string;
-				tem_string.erase(0, start + to_replace.length()+1);
+				start = tem_string.find(to_find);
 			}
-			else{
-				start = tem_string.find('\n');
-				temp2 = tem_string.substr(0,start + 1);
-				tem_string.erase(0, start + 1);
-				outfile << temp2;
-			}
+			start = tem_string.find('\n');
+			temp2 = tem_string.substr(0, start + 1);
+			tem_string.erase(0, start + 1);
+			outfile << temp2;
 		}
 	}
 	outfile << tem_string;
