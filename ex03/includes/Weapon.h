@@ -21,7 +21,7 @@ class Weapon {
 	public:
 		 explicit Weapon(std::string type);
 		~Weapon() = default;
-		std::string getType();
+		const std::string& getType();
 		void setType(std::string weapon_type);
 };
 

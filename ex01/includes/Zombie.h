@@ -20,9 +20,10 @@ class Zombie {
 		std::string name;
 	public:
 		Zombie();
+		explicit Zombie(std::string new_name);
 		~Zombie();
-		void	anounce();
-		void	get_name(std::string name);
+		void	announce();
+		void	set_name(std::string new_name);
 
 };
 

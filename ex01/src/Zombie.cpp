@@ -14,11 +14,8 @@
 #include <utility>
 #include "../includes/Zombie.h"
 
-void	Zombie::anounce() {
+void	Zombie::announce() {
 	std::cout<<name<<": BraiiiiiiinnnzzzZ...\n";
-}
-void	Zombie::get_name(std::string new_name) {
-	name = std::move(new_name);
 }
 
 Zombie::Zombie() {
@@ -29,4 +26,10 @@ Zombie::~Zombie() {
 	std::cout<<name<<" was head shot\n";
 }
 
+Zombie::Zombie(std::string new_name) :name(std::move(new_name)) {
 
+}
+
+void Zombie::set_name(std::string new_name) {
+	name = std::move(new_name);
+}

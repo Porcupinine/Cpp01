@@ -14,6 +14,6 @@
 #include "../includes/Zombie.h"
 
 int main() {
-	Zombie *horde =	zombieHorde(25, "Zumbie dos Palmares");
+	Zombie *horde =	zombieHorde(25, "Zumbi dos Palmares");
 	delete [] horde;
 }

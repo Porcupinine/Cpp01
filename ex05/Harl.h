@@ -28,4 +28,9 @@ class Harl {
 		void complain(const std::string& level);
 };
 
+typedef struct my_pair {
+	std::string str;
+	void (Harl::*f)();
+}harl_pair;
+
 #endif //CPP01_HARL_H

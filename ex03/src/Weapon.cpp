@@ -17,7 +17,7 @@
 Weapon::Weapon(std::string type) : m_type(std::move(type)) {
 }
 
-std::string Weapon::getType() {
+const std::string& Weapon::getType() {
 	return m_type;
 }
 

@@ -15,7 +15,6 @@
 #include "../includes/Zombie.h"
 
 void randomChump(std::string name) {
-	Zombie new_zombie;
-	new_zombie.get_name(std::move(name));
-	new_zombie.anounce();
+	Zombie new_zombie(std::move(name));
+	new_zombie.announce();
 }

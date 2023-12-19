@@ -15,8 +15,8 @@
 Zombie* zombieHorde(int N, const std::string& name) {
 	auto *horde = new Zombie[N];
 	for (int x = 0; x < N; x++) {
-		horde[x].get_name(name);
-		horde->anounce();
+		horde[x].set_name(name);
+		horde->announce();
 	}
 	return horde;
 }
