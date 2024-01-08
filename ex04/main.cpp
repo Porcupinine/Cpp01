@@ -19,10 +19,14 @@
 #include <iostream>
 #include <string>
 #include <fstream>
-#include<bits/stdc++.h>
 
-size_t count_new_lines(std::string str) {
-	size_t new_lines = std::count(str.begin(), str.end(), '\n');
+size_t count_new_lines(const std::string& str) {
+	size_t	new_lines =0;
+	size_t	start = str.find('\n');
+	while (start != std::string::npos) {
+		new_lines++;
+		start = str.find('\n', start + 1);
+	}
 	return (new_lines);
 }
 
@@ -40,7 +44,7 @@ void write_new_file(const std::string &to_find, const std::string &to_replace,
 			while (start != std::string::npos) {
 				tem_string.erase(start, to_find.length());
 				tem_string.insert(start, to_replace);
-				start = tem_string.find(to_find);
+				start = tem_string.find(to_find, start + to_replace.length());
 			}
 			start = tem_string.find('\n');
 			temp2 = tem_string.substr(0, start + 1);

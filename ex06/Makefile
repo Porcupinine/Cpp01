@@ -17,7 +17,7 @@ NAME	:= ex06
 CC 		=  c++
 
 #-------------------------------------------------------------------------Flags
-CFLAGS	+= -Wextra -Wall -Werror
+CFLAGS	+= -Wextra -Wall -Werror -Wno-implicit-fallthrough
 ASANFLAGS += -g -fsanitize=address -fsanitize=leak
 
 #----------------------------------------------------------------Libraries path
